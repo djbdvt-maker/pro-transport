@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TransitIQ — Add Route</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">TransitIQ</span>
+    </div>
+    <a href="/" class="btn-new-route back-btn">
+      ← Back to Finder
+    </a>
+  </nav>
+
+  <main class="add-main">
+    <div class="add-hero">
+      <h1>Add a <span class="accent">New Route</span></h1>
+      <p class="subtext">Contribute to the network. Your route will be used in future calculations.</p>
+    </div>
+
+    <div class="add-card">
+      <div class="add-input-group">
+        <div class="field-wrapper">
+          <label>FROM STOP</label>
+          <div class="input-box">
+            <span class="input-icon">◉</span>
+            <input type="text" id="addFrom" placeholder="e.g. Central Station" autocomplete="off"/>
+          </div>
+        </div>
+
+        <div class="field-wrapper">
+          <label>TO STOP</label>
+          <div class="input-box">
+            <span class="input-icon destination-icon">◎</span>
+            <input type="text" id="addTo" placeholder="e.g. Airport" autocomplete="off"/>
+          </div>
+        </div>
+
+        <div class="field-wrapper">
+          <label>TRAVEL TIME (minutes)</label>
+          <div class="input-box">
+            <span class="input-icon time-icon">◷</span>
+            <input type="number" id="addTime" placeholder="e.g. 15" min="1" max="300"/>
+          </div>
+        </div>
+
+        <div class="field-wrapper">
+          <label>MODE OF TRANSPORT</label>
+          <div class="mode-toggle">
+            <button class="mode-btn active" id="busBtn" data-mode="bus">
+              <span class="mode-emoji">🚌</span>
+              <span>Bus</span>
+            </button>
+            <button class="mode-btn" id="metroBtn" data-mode="metro">
+              <span class="mode-emoji">🚇</span>
+              <span>Metro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-submit" id="submitBtn">
+        <span class="btn-text">Submit Route</span>
+        <span class="btn-icon">＋</span>
+      </button>
+    </div>
+
+    <div class="success-panel" id="successPanel" style="display:none;">
+      <span class="success-icon">✓</span>
+      <span id="successMsg"></span>
+    </div>
+
+    <div class="error-panel" id="errorPanel" style="display:none;">
+      <span class="error-icon">⚠</span>
+      <span id="errorMsg"></span>
+    </div>
+  </main>
+
+  <script src="/static/js/add_route.js"></script>
+</body>
+</html>

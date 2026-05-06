@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TransitIQ — Bengaluru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">T</div>
+      <span class="brand-name">TransitIQ</span>
+      <span class="brand-city">Bengaluru</span>
+    </div>
+    <div class="legend">
+      <span class="legend-item metro">🚇 Metro</span>
+      <span class="legend-item bus">🚌 Bus</span>
+      <span class="legend-item walk">🚶 Walk</span>
+    </div>
+  </header>
+
+  <!-- ── MAP (full viewport) ── -->
+  <div id="map"></div>
+
+  <!-- ── SIDE PANEL ── -->
+  <div class="side-panel" id="sidePanel">
+
+    <div class="panel-section" style="position:relative">
+      <label class="field-label">FROM</label>
+      <div class="input-row">
+        <div class="input-wrap">
+          <span class="input-dot green"></span>
+          <input type="text" id="startInput" placeholder="Type your starting location…" autocomplete="off"/>
+        </div>
+        <button class="icon-btn" id="locBtn" title="Use my location">◎</button>
+      </div>
+      <div class="search-dropdown" id="startDropdown"></div>
+    </div>
+
+    <div class="panel-section" style="position:relative">
+      <label class="field-label">TO</label>
+      <div class="input-wrap">
+        <span class="input-dot red"></span>
+        <input type="text" id="endInput" placeholder="Search destination in Bengaluru…" autocomplete="off"/>
+      </div>
+      <div class="search-dropdown" id="searchDropdown"></div>
+    </div>
+
+    <div id="errorMsg" class="error-msg" style="display:none"></div>
+
+    <button class="calc-btn" id="calcBtn">
+      <span class="btn-label">Find Route</span>
+      <span class="arrow">→</span>
+    </button>
+
+    <!-- LEGEND CARDS -->
+    <div class="speed-cards">
+      <div class="speed-card">
+        <span class="sc-icon metro-color">🚇</span>
+        <div>
+          <div class="sc-label">Metro</div>
+          <div class="sc-val">35 km/h</div>
+        </div>
+      </div>
+      <div class="speed-card">
+        <span class="sc-icon bus-color">🚌</span>
+        <div>
+          <div class="sc-label">Bus</div>
+          <div class="sc-val">18 km/h</div>
+        </div>
+      </div>
+      <div class="speed-card">
+        <span class="sc-icon walk-color">🚶</span>
+        <div>
+          <div class="sc-label">Walk</div>
+          <div class="sc-val">5 km/h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESULTS PANEL ── -->
+  <div class="results-panel" id="resultsPanel" style="display:none">
+    <div class="results-header">
+      <div class="results-title">Optimal Route</div>
+      <button class="close-btn" id="closeResults">✕</button>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-item">
+        <div class="summary-num" id="totalTimeNum">—</div>
+        <div class="summary-lbl">minutes</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-item">
+        <div class="summary-num" id="totalDist">—</div>
+        <div class="summary-lbl">distance</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-item">
+        <div class="summary-num" id="stopCount">—</div>
+        <div class="summary-lbl">transit</div>
+      </div>
+    </div>
+
+    <div class="algo-badge">
+      ⚡ Dijkstra's Algorithm
+    </div>
+
+    <div class="steps-container" id="stepsContainer"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/dijkstra.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

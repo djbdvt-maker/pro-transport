@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {"from": "Central Station", "to": "City Mall", "time": 12, "mode": "metro"},
+    {"from": "City Mall", "to": "Tech Park", "time": 8, "mode": "metro"},
+    {"from": "Tech Park", "to": "Airport", "time": 25, "mode": "bus"},
+    {"from": "Central Station", "to": "Old Town", "time": 10, "mode": "bus"},
+    {"from": "Old Town", "to": "University", "time": 7, "mode": "bus"},
+    {"from": "University", "to": "City Mall", "time": 15, "mode": "metro"},
+    {"from": "Airport", "to": "Hotel District", "time": 18, "mode": "bus"},
+    {"from": "Hotel District", "to": "Central Station", "time": 20, "mode": "metro"},
+    {"from": "Old Town", "to": "Tech Park", "time": 22, "mode": "bus"},
+    {"from": "University", "to": "Hotel District", "time": 30, "mode": "metro"}
+  ]
+}
